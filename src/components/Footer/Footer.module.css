@@ -1,0 +1,150 @@
+.footer {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: clamp(3rem, 8vw, 6rem) 0 0 0;
+  margin: 0 -2rem -2rem -2rem;
+  position: relative;
+  width: calc(100% + 4rem);
+}
+
+.footerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(2rem, 6vw, 4rem);
+  margin-bottom: 3rem;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footerTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FF8B00;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footerTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #FF8B00;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footerLink:hover {
+  color: #FF8B00;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contactIcon {
+  width: 20px;
+  height: 20px;
+  color: #FF8B00;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.mapContainer {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin: 0 -1rem -1rem -1rem;
+    width: calc(100% + 2rem);
+    padding: 2rem 0 0 0;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .footerSection {
+    align-items: center;
+  }
+
+  .footerTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .linksList {
+    align-items: center;
+  }
+
+  .contactInfo {
+    align-items: center;
+  }
+
+  .contactItem {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .contactIcon {
+    margin-top: 0;
+  }
+
+  .mapContainer {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+} 
