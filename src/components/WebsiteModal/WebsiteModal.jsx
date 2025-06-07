@@ -3,11 +3,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { XMarkIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import styles from './WebsiteModal.module.css';
 
+const Spinner = () => (
+  <div className={styles.spinnerContainer}>
+    <div className={styles.spinner}>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <p className={styles.loadingText}>Loading website...</p>
+  </div>
+);
+
 const WebsiteModal = ({ isOpen, onClose, website, title }) => {
   const [iframeError, setIframeError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleIframeError = () => {
     setIframeError(true);
+  };
+
+  const handleIframeLoad = () => {
+    setIsLoading(false);
   };
 
   return (
@@ -35,6 +52,7 @@ const WebsiteModal = ({ isOpen, onClose, website, title }) => {
               </button>
             </div>
             <div className={styles.content}>
+              {isLoading && <Spinner />}
               {iframeError ? (
                 <div className={styles.fallback}>
                   <p>This website cannot be displayed in the preview.</p>
@@ -55,10 +73,11 @@ const WebsiteModal = ({ isOpen, onClose, website, title }) => {
                 <iframe
                   src={website}
                   title={title}
-                  className={styles.iframe}
+                  className={`${styles.iframe} ${isLoading ? styles.loading : ''}`}
                   loading="lazy"
                   sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                   onError={handleIframeError}
+                  onLoad={handleIframeLoad}
                 />
               )}
             </div>

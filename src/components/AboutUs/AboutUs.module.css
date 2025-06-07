@@ -1,0 +1,205 @@
+.aboutUsContainer {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  height: 60vh;
+  min-height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('../../assets/capitolhill.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.mission {
+  background: #f8f8f8;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  text-align: center;
+}
+
+.mission h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.mission p {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.8;
+  color: #4a4a4a;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.values {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background: white;
+}
+
+.values h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+  color: #1a1a1a;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.valueCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+}
+
+.valueCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #FF8B00;
+}
+
+.valueCard p {
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+.history {
+  background: #f8f8f8;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.history .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.historyText h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.historyText p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.8;
+  color: #4a4a4a;
+}
+
+.historyImage {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.historyImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.historyImage:hover img {
+  transform: scale(1.05);
+}
+
+.leadership {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background: white;
+  margin-bottom: 2rem;
+}
+
+.leadership h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+  color: #1a1a1a;
+}
+
+.leadershipGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.leadershipCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.leadershipCard:hover {
+  transform: translateY(-5px);
+}
+
+.leadershipCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #FF8B00;
+}
+
+.leadershipCard p {
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .history .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .historyText {
+    order: 2;
+  }
+
+  .historyImage {
+    order: 1;
+  }
+
+  .valueCard, .leadershipCard {
+    padding: 1.5rem;
+  }
+} 

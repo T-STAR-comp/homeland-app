@@ -14,6 +14,7 @@ import {
   LockClosedIcon,
   GlobeAltIcon,
   ScaleIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import styles from "./style/home.module.css";
 import ministerImage from "../assets/zikhale.jpg";
@@ -21,13 +22,29 @@ import sealImage from "../assets/seal.png";
 import capitolHillImage from "../assets/capitolhill.jpg";
 import Footer from "../components/Footer/Footer";
 import WebsiteModal from "../components/WebsiteModal/WebsiteModal";
+import AboutUs from "../components/AboutUs/AboutUs";
+import Services from "../components/Services/Services";
+import Departments from "../components/Departments/Departments";
+import ContactUs from "../components/ContactUs/ContactUs";
 import policeGroupImage from "../assets/policegroup.jpg";
 import stock1Image from "../assets/stock1.png";
+import mbcLogo from "../assets/mbc-logo.png";
+import interpolLogo from "../assets/interpol.png";
+import judiciaryLogo from "../assets/judiciarylogo.png";
+import lawCommissionLogo from "../assets/lawcommissionlogo.png";
+import malawiLawSocietyLogo from "../assets/malawilawsociety.jpg";
+import mhrcLogo from "../assets/mhrclogo.png";
+import acbLogo from "../assets/acblogo.png";
 
 const Home = () => {
   const [selectedAgency, setSelectedAgency] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showAboutUs, setShowAboutUs] = useState(false);
+  const [showServices, setShowServices] = useState(false);
+  const [showDepartments, setShowDepartments] = useState(false);
+  const [showContactUs, setShowContactUs] = useState(false);
+  const [selectedPartner, setSelectedPartner] = useState(null);
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -44,13 +61,13 @@ const Home = () => {
   };
 
   const navItems = [
-    { title: "Home", icon: HomeIcon },
-    { title: "About Us", icon: UserGroupIcon },
-    { title: "Departments", icon: BuildingOfficeIcon },
-    { title: "Services", icon: WrenchIcon },
-    { title: "Resource Centre", icon: DocumentTextIcon },
-    { title: "Boma-mail", icon: EnvelopeIcon },
-    { title: "Contact Us", icon: PhoneIcon },
+    { title: "Home", icon: HomeIcon, action: () => {window.location.href = "/"} },
+    { title: "About Us", icon: UserGroupIcon, action: () => setShowAboutUs(true) },
+    { title: "Departments", icon: BuildingOfficeIcon, action: () => setShowDepartments(true) },
+    { title: "Services", icon: WrenchIcon, action: () => setShowServices(true) },
+    { title: "Resource Centre", icon: DocumentTextIcon, action: () => {} },
+    { title: "Boma-mail", icon: EnvelopeIcon, action: () => {} },
+    { title: "Contact Us", icon: PhoneIcon, action: () => setShowContactUs(true) },
   ];
 
   const agencies = [
@@ -113,11 +130,11 @@ const Home = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100); // Change state after scrolling 100px
+      setIsScrolled(scrollPosition > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -162,6 +179,10 @@ const Home = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
+              onClick={(e) => {
+                e.preventDefault();
+                item.action();
+              }}
               whileHover={{ scale: 1.05 }}
             >
               {item.title}
@@ -416,6 +437,225 @@ const Home = () => {
         onClose={() => setSelectedAgency(null)}
         website={selectedAgency?.website}
         title={selectedAgency?.title}
+      />
+
+      <AnimatePresence>
+        {showAboutUs && (
+          <>
+            <motion.div
+              className={styles.modalOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAboutUs(false)}
+            />
+            <motion.div
+              className={styles.pageModal}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            >
+              <div className={styles.modalHeader}>
+                <h3>About Us</h3>
+                <button onClick={() => setShowAboutUs(false)} className={styles.modalCloseButton}>
+                  <XMarkIcon className={styles.modalCloseIcon} />
+                </button>
+              </div>
+              <div className={styles.modalContent}>
+                <AboutUs />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showServices && (
+          <>
+            <motion.div
+              className={styles.modalOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowServices(false)}
+            />
+            <motion.div
+              className={styles.pageModal}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            >
+              <div className={styles.modalHeader}>
+                <h3>Our Services</h3>
+                <button onClick={() => setShowServices(false)} className={styles.modalCloseButton}>
+                  <XMarkIcon className={styles.modalCloseIcon} />
+                </button>
+              </div>
+              <div className={styles.modalContent}>
+                <Services />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showDepartments && (
+          <>
+            <motion.div
+              className={styles.modalOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowDepartments(false)}
+            />
+            <motion.div
+              className={styles.pageModal}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            >
+              <div className={styles.modalHeader}>
+                <h3>Our Departments</h3>
+                <button onClick={() => setShowDepartments(false)} className={styles.modalCloseButton}>
+                  <XMarkIcon className={styles.modalCloseIcon} />
+                </button>
+              </div>
+              <div className={styles.modalContent}>
+                <Departments />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showContactUs && (
+          <>
+            <motion.div
+              className={styles.modalOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowContactUs(false)}
+            />
+            <motion.div
+              className={styles.pageModal}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            >
+              <div className={styles.modalHeader}>
+                <h3>Contact Us</h3>
+                <button onClick={() => setShowContactUs(false)} className={styles.modalCloseButton}>
+                  <XMarkIcon className={styles.modalCloseIcon} />
+                </button>
+              </div>
+              <div className={styles.modalContent}>
+                <ContactUs />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      <motion.section 
+        className={styles.partners}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className={styles.partnersContent}>
+          <motion.div
+            className={styles.partnersHeader}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className={styles.partnersTitle}>Our Partners</h2>
+            <p className={styles.partnersSubtitle}>
+              Working together with key institutions to ensure safety, justice, and security for all Malawians
+            </p>
+          </motion.div>
+
+          <motion.div
+            className={styles.partnersGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
+          >
+            {[
+              { 
+                logo: mbcLogo, 
+                name: "Malawi Broadcasting Corporation",
+                website: "https://mbc.mw/"
+              },
+              { 
+                logo: interpolLogo, 
+                name: "INTERPOL Malawi",
+                website: "https://www.interpol.int/en/Who-we-are/Member-countries/Africa/MALAWI"
+              },
+              { 
+                logo: judiciaryLogo, 
+                name: "Malawi Judiciary",
+                website: "https://www.judiciary.mw/"
+              },
+              { 
+                logo: lawCommissionLogo, 
+                name: "Malawi Law Commission",
+                website: "#"
+              },
+              { 
+                logo: malawiLawSocietyLogo, 
+                name: "Malawi Law Society",
+                website: "https://malawilawsociety.net/"
+              },
+              { 
+                logo: mhrcLogo, 
+                name: "Malawi Human Rights Commission",
+                website: "https://mhrcmw.org/"
+              },
+              { 
+                logo: acbLogo, 
+                name: "Anti-Corruption Bureau",
+                website: "#"
+              },
+            ].map((partner, index) => (
+              <motion.div
+                key={index}
+                className={styles.partnerLogo}
+                onClick={() => partner.website !== "#" && setSelectedPartner(partner)}
+                style={{ cursor: partner.website !== "#" ? "pointer" : "default" }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                }}
+              >
+                <img src={partner.logo} alt={partner.name} title={partner.name} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      <WebsiteModal
+        isOpen={!!selectedPartner}
+        onClose={() => setSelectedPartner(null)}
+        website={selectedPartner?.website}
+        title={selectedPartner?.name}
       />
 
       <Footer />

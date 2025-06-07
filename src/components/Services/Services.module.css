@@ -1,0 +1,200 @@
+.servicesContainer {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  height: 50vh;
+  min-height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('../../assets/policegroup.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 5vw, 4rem);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  background: white;
+  border-radius: 20px;
+  padding: clamp(2rem, 4vw, 2.5rem);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 139, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 139, 0, 0.15);
+}
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #FF8B00 0%, #FF6B00 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.serviceCard h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.description {
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+}
+
+.features li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #FF8B00;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.learnMore {
+  background: linear-gradient(135deg, #FF8B00 0%, #FF6B00 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  margin-top: auto;
+  width: fit-content;
+}
+
+.learnMore:hover {
+  box-shadow: 0 4px 12px rgba(255, 139, 0, 0.3);
+}
+
+.contact {
+  background: #f8f8f8;
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contactContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.contact p {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contactButton {
+  background: linear-gradient(135deg, #FF8B00 0%, #FF6B00 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contactButton:hover {
+  box-shadow: 0 4px 12px rgba(255, 139, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact {
+    padding: 3rem 1rem;
+  }
+} 
