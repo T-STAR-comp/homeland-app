@@ -430,6 +430,9 @@
   aspect-ratio: 3/4;
   box-shadow: 0 25px 50px -12px rgba(255, 139, 0, 0.15);
   width: 100%;
+  max-width: 400px;
+  max-height: 600px;
+  margin: 0 auto;
 }
 
 .ministerImage img {
@@ -708,7 +711,9 @@
 }
 
 .agencyButton {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #FF8B00 0%, #FF6B00 100%);
@@ -727,10 +732,16 @@
   outline: none;
 }
 
-.agencyButton:hover {
-  box-shadow: 0 6px 12px rgba(255, 139, 0, 0.2);
-  transform: translateY(-2px);
+.externalIcon {
+  width: 16px;
+  height: 16px;
   color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.agencyButton:hover .externalIcon {
+  opacity: 1;
 }
 
 /* Mobile Responsiveness - Add at the end of the file */
@@ -1052,5 +1063,17 @@
   .partnerLogo {
     max-width: 120px;
     height: 70px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .ministerContent {
+    max-width: 1400px;
+    grid-template-columns: minmax(300px, 350px) 1fr;
+  }
+
+  .ministerImage {
+    max-width: 350px;
+    max-height: 500px;
   }
 }

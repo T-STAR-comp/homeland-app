@@ -5,15 +5,15 @@ import { MapPinIcon, PhoneIcon, EnvelopeIcon, GlobeAltIcon } from '@heroicons/re
 const Footer = () => {
   const usefulLinks = [
     { name: 'Malawi Government', url: 'https://www.malawi.gov.mw' },
-    { name: 'Office of the Ombudsman', url: '#' },
-    { name: 'Malawi Legal Aid Bureau', url: '#' },
-    { name: 'Ministry of Justice', url: '#' },
-    { name: 'Malawi Law Commission', url: '#' },
-    { name: 'The Malawi Parliament', url: '#' },
-    { name: 'The Anti-Corruption Bureau (ACB)', url: '#' },
-    { name: 'Malawi Law Society', url: '#' },
-    { name: 'Malawi Judiciary', url: '#' },
-    { name: 'Ministry of Information', url: '#' },
+    { name: 'Office of the Ombudsman', url: 'https://ombudsmanmalawi.org/' },
+    { name: 'Malawi Legal Aid Bureau', url: 'https://legalaidbureau.org/' },
+    { name: 'Ministry of Justice', url: 'https://justice.gov.mw/' },
+    { name: 'Malawi Law Commission', url: 'https://www.linkedin.com/company/the-law-commission/' },
+    { name: 'The Malawi Parliament', url: 'http://www.parliament.gov.mw/' },
+    { name: 'The Anti-Corruption Bureau (ACB)', url: 'http://www.acbmw.org/' },
+    { name: 'Malawi Law Society', url: 'https://malawilawsociety.net/' },
+    { name: 'Malawi Judiciary', url: 'https://judiciary.mw/' },
+    { name: 'Ministry of Information', url: 'https://www.malawi.gov.mw/' },
   ];
 
   const quickLinks = [
@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className={styles.linksList}>
               {usefulLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.url} className={styles.footerLink}>
+                  <a href={link.url} className={styles.footerLink} target="_blank" rel="noopener noreferrer">
                     {link.name}
                   </a>
                 </li>
