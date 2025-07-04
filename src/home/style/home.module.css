@@ -783,15 +783,13 @@
   .grid {
     grid-template-columns: 1fr;
     padding: 1rem;
-    margin-top: 2rem !important;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     width: 100%;
     box-sizing: border-box;
-    min-height: 200px !important;
-    background: #fff !important;
-    z-index: 100 !important;
-    position: relative !important;
-    border: 2px solid red !important; /* Remove after debugging */
+    position: relative;
+    z-index: 2;
+    background: #fff;
   }
 
   .card {
@@ -820,6 +818,11 @@
 
   .agencies {
     padding: 3rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .minister {
+    margin-bottom: 2rem;
   }
 
   .agenciesContent {
